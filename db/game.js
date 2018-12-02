@@ -60,22 +60,22 @@ const verifyInGame = (user_id, game_id) => {
 };
 
 const getPlayerCards = (user_id, game_id) => {
-    return db.query('SELECT card_id FROM game_players WHERE game_players.user_id = $1 AND game_id = $2', [user_id, game_id])
+    return db.query('SELECT card_id FROM user_game_cards WHERE game_players.user_id = $1 AND game_id = $2', [user_id, game_id])
         .catch((error) => {console.log(error)})
 }
 
 const getCardCount = (user_id, game_id) => {
-    return db.query('SELECT COUNT(card_id) FROM game_players WHERE game_players.user_id = $1 AND game_id = $2', [user_id, game_id])
+    return db.query('SELECT COUNT(card_id) FROM user_game_cards WHERE game_players.user_id = $1 AND game_id = $2', [user_id, game_id])
         .catch((error) => {console.log(error)})
 }
 
 const getPlayerTotalScore = (user_id, game_id) => {
-    return db.query('SELECT total_score FROM game_players WHERE game_players.user_id = $1 AND game_id = $2', [user_id, game_id])
+    return db.query('SELECT total_score FROM user_game_cards WHERE game_players.user_id = $1 AND game_id = $2', [user_id, game_id])
         .catch((error) => {console.log(error) })
 }
 
 const getPlayerRoundScore = (user_id, game_id) => {
-    return db.query('SELECT current_round_score FROM game_players WHERE game_players.user_id = $1 AND game_id = $2', [user_id, game_id])
+    return db.query('SELECT current_round_score FROM user_game_cards WHERE game_players.user_id = $1 AND game_id = $2', [user_id, game_id])
         .catch((error) => {console.log(error)})
 }
 
